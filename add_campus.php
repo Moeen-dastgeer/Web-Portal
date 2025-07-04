@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $admin_password = password_hash($_POST['admin_password'], PASSWORD_DEFAULT);
     $admin_name = $_POST['admin_name'];
 
-    // Check if username already exists in admins table
+    // Check if username already exists
     $check = $conn->query("SELECT * FROM admins WHERE username = '$admin_username'");
     if ($check->num_rows > 0) {
         $error = "❌ Username already exists!";
